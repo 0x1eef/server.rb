@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+require_relative "lib/server/version"
 Gem::Specification.new do |gem|
   gem.name = "server.rb"
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/server.rb#readme"
-  gem.version = "0.1.0"
+  gem.version = Server::VERSION
   gem.licenses = ["0BSD"]
   gem.files = Dir["lib/*", "lib/**/*.rb"]
   gem.require_paths = ["lib"]
