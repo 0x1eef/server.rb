@@ -78,7 +78,9 @@ class ServerDirTest < Test::Unit::TestCase
   private
 
   def app
-    @app ||= Server.app("./test/webroot/")
+    @app ||= Server
+               .send(:app, File.join(__dir__, "webroot"))
+               .instance_variable_get(:@app)
   end
 
   def bytesize(path)
