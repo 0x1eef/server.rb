@@ -1,11 +1,7 @@
 ## About
 
 server.rb implements a static file web server. <br>
-<<<<<<< HEAD
 The implementation uses both [puma](https://github.com/puma/puma) and [rack](https://github.com/rack/rack).
-=======
-Built with [puma](https://github.com/puma/puma) and [rack](https://github.com/rack/rack).
->>>>>>> 4e0e5fa (Add API docs)
 
 ## Example
 
