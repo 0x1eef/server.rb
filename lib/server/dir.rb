@@ -12,7 +12,7 @@ class Server::Dir
   end
 
   def call(env)
-    finish Rack::Request.new(env)
+    catch(:redirect) { finish Rack::Request.new(env) }
   rescue Errno::EPERM, Errno::EACCES
     body = "Permission denied"
     [403, {"content-length" => body.bytesize, "content-type" => "text/plain"}, [body]]
@@ -24,8 +24,8 @@ class Server::Dir
     [500, {"content-length" => body.bytesize, "content-type" => "text/plain"}, [body]]
   end
 
-  def finish(request)
-    path = find_path(request)
+  def finish(req)
+    path = resolve_path(req)
     body = File.binread(path)
     extn = File.extname(path)
     [
@@ -40,8 +40,13 @@ class Server::Dir
 
   attr_reader :root, :mime_types
 
-  def find_path(request)
-    path = File.join root, File.expand_path(request.path)
-    File.directory?(path) ? File.join(path, "index.html") : path
+  def resolve_path(req)
+    path = File.join root, File.expand_path(req.path)
+    return path unless File.directory?(path)
+    if req.path.end_with?("/")
+      File.join(path, "index.html")
+    else
+      throw(:redirect, [301, {"Location" => "#{req.path}/"}, [""]])
+    end
   end
 end
