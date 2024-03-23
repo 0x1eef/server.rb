@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 ##
-# A mixin module that serves a compressed version of
-# a file when the file is found to exist on disk,
-# and has a ".gz" file extension.
+# A mixin that serves a compressed copy of a file.
+# Similar to the nginx module
+# [gzip_static](http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html).
 module Server::Gzip
   def finish(request)
     path = gzip_path(request)
