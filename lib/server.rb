@@ -31,9 +31,9 @@ class Server
   # @return [Server]
   #  Returns an instance of {Server Server}.
   def self.dir(path, options = {})
-    host = options.delete(:host) || "127.0.0.1"
-    port = options.delete(:port) || 3000
-    unix = options.delete(:unix) || false
+    host = options.delete(:host) || options.delete("host") || "127.0.0.1"
+    port = options.delete(:port) || options.delete("port") || 3000
+    unix = options.delete(:unix) || options.delete("unix") || nil
     new app(path), options.merge!(
       binds: [unix ? "unix://#{unix}" : "tcp://#{host}:#{port}"]
     )
