@@ -1,15 +1,16 @@
 ## About
 
-server.rb implements a static file web server. <br>
-The implementation uses both [puma](https://github.com/puma/puma) and [rack](https://github.com/rack/rack).
+server.rb is a static file web server implemented with 
+[puma](https://github.com/puma/puma) 
+and 
+[rack](https://github.com/rack/rack).
 
 ## Example
 
 ### Server.dir
 
-The
 [`Server.dir`](http://0x1eef.github.io/x/server.rb/Server.html#dir-class_method)
-method returns an object that can serve the contents
+returns an object that can serve the contents
 of a directory over HTTP:
 
 ```ruby
