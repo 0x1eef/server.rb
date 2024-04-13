@@ -7,8 +7,10 @@ The implementation uses both [puma](https://github.com/puma/puma) and [rack](htt
 
 ### Server.dir
 
-Via [`Server.dir`](http://0x1eef.github.io/x/server.rb/Server.html#dir-class_method)
-the contents of a directory can be served over HTTP:
+The
+[`Server.dir`](http://0x1eef.github.io/x/server.rb/Server.html#dir-class_method)
+method returns an object that can serve the contents
+of a directory over HTTP:
 
 ```ruby
 require "server"
@@ -18,7 +20,7 @@ server.start(block: true)
 
 ## Documentation
 
-A complete API reference is available at 
+A complete API reference is available at
 [0x1eef.github.io/x/server.rb](https://0x1eef.github.io/x/server.rb).
 
 ## Install
