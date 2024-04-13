@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    server.rb (0.1.1)
+    server.rb (0.2.0)
       puma (~> 6.3)
       rack (~> 3.0)
 
