@@ -9,13 +9,13 @@ and
 
 ### Server.dir
 
-[`Server.dir`](http://0x1eef.github.io/x/server.rb/Server.html#dir-class_method)
+[`Server.for`](http://0x1eef.github.io/x/server.rb/Server.html#for-class_method)
 returns an object that can serve the contents
 of a directory over HTTP:
 
 ```ruby
 require "server"
-server = Server.dir File.join(Dir.getwd, "website")
+server = Server.for File.join(Dir.getwd, "website")
 server.start(block: true)
 ```
 

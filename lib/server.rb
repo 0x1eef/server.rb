@@ -30,7 +30,7 @@ class Server
   #
   # @return [Server]
   #  Returns an instance of {Server Server}.
-  def self.dir(path, options = {})
+  def self.for(path, options = {})
     host = options.delete(:host) || options.delete("host") || "127.0.0.1"
     port = options.delete(:port) || options.delete("port") || 3000
     unix = options.delete(:unix) || options.delete("unix") || nil

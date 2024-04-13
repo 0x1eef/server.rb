@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    server.rb (0.1.0)
+    server.rb (0.1.1)
       puma (~> 6.3)
       rack (~> 3.0)
 
@@ -69,4 +69,4 @@ DEPENDENCIES
   test-unit (~> 3.5)
 
 BUNDLED WITH
-   2.3.26
+   2.5.3
