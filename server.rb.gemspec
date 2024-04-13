@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = Dir["lib/*", "lib/**/*.rb"]
   gem.require_paths = ["lib"]
-  gem.summary = "A static file web server"
+  gem.summary = "A static file web server."
   gem.description = gem.summary
 
   gem.add_runtime_dependency "puma", "~> 6.3"
