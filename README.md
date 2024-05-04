@@ -22,13 +22,13 @@ server.start(block: true)
 ## Documentation
 
 A complete API reference is available at
-[0x1eef.github.io/x/server.rb](https://0x1eef.github.io/x/server.rb).
+[0x1eef.github.io/x/server.rb](https://0x1eef.github.io/x/server.rb)
 
 ## Install
 
 **Rubygems.org**
 
-server.rb can be installed via rubygems.org.
+server.rb can be installed via rubygems.org:
 
 ``` ruby
 gem install server.rb
