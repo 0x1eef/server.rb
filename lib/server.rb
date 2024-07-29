@@ -9,10 +9,9 @@ class Server
 
   ##
   # @param [String] path
-  #  The path to a directory.
-  #
+  #  The path to a directory
   # @return [Rack::Builder]
-  #  Returns a Rack app.
+  #  Returns a Rack app
   def self.app(path)
     Rack::Builder.app do
       use Server::ETag
@@ -24,13 +23,21 @@ class Server
   ##
   # @param [String] path
   #  The path to a directory
-  #
   # @param [Hash] options
   #  Hash of options
-  #
   # @return [Server]
   #  Returns an instance of {Server Server}
   def self.for(path, options = {})
+    new app(path), prepare(options)
+  end
+
+  ##
+  # Prepares options for {Server#initialize Server#initialize}
+  # @param [#to_h] options
+  # @return [Hash]
+  #  Returns a Hash object
+  def self.prepare(options)
+    options = options.to_h.dup
     host = options.delete(:host)  ||
            options.delete("host") ||
            options.delete(:bind)  ||
@@ -42,10 +49,12 @@ class Server
     unix = options.delete(:unix)  ||
            options.delete("unix") ||
            nil
-    new app(path), options.merge!(
+    options.merge!(
       binds: [unix ? "unix://#{unix}" : "tcp://#{host}:#{port}"]
     )
+    options
   end
+
   class << self
     alias_method :dir, :for
   end
@@ -53,10 +62,8 @@ class Server
   ##
   # @param [Rack::Builder] app
   #  Rack application
-  #
   # @param [Hash] options
   #  Hash of options
-  #
   # @return [Server]
   #  Returns an instance of {Server Server}
   def initialize(app, options = {})
@@ -68,10 +75,8 @@ class Server
 
   ##
   # Starts the web server
-  #
   # @param [Boolean] block
   #  When given as true, this method will block
-  #
   # @return [Thread]
   #  Returns a thread
   def start(block: false)
@@ -82,7 +87,6 @@ class Server
 
   ##
   # Stops the web server
-  #
   # @return [void]
   def stop
     @server.stop

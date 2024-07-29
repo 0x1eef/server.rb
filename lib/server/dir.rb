@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 ##
-# A rack application that serves the contents
-# of a directory over HTTP.
+# {Server::Dir Server::Dir} provides a rack application that
+# serves the contents of a directory
 class Server::Dir
   prepend Server::Gzip
 
